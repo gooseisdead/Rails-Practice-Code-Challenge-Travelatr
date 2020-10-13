@@ -1,0 +1,4 @@
+<h1>Featured Blogger</h1>
+
+<%= @blogger.name %>
+<%= "Total likes: #{@blogger.posts.map { |post| post.likes }.sum}" %>
