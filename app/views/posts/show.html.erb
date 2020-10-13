@@ -1,0 +1,7 @@
+<h1><%=@post.title%></h1>
+<h3><%= link_to "Blogger: #{@post.blogger.name}", blogger_path(@post.blogger)%></h3>
+
+
+<p>
+    <%=@post.content%>
+</p>

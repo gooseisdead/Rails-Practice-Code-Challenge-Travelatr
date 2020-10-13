@@ -30,7 +30,7 @@ end
     Post.create({
       title: Faker::Hipster.sentence(3),
       content: Faker::Hipster.paragraphs(4),
-      likes: 0,
+      likes: (2..6).to_a.sample,
       blogger_id: Blogger.all.sample.id,
       destination_id: Destination.all.sample.id
     })
