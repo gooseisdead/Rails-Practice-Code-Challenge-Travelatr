@@ -1,4 +1,13 @@
 <h1>Featured Blogger</h1>
 
 <%= @blogger.name %>
-<%= "Total likes: #{@blogger.posts.map { |post| post.likes }.sum}" %>
+<%= "Total likes: #{@blogger.posts.map { |post| post.likes }.sum}" %><br>
+<%=link_to @blogger.posts.sort_by { |post| post.likes * -1 }.first.title, post_path(@blogger.posts.sort_by { |post| post.likes * -1 }.first)%><br>
+
+<%destinations = @blogger.posts.map{|post| post.destination}%>
+<%destinations = destinations.group_by(&:itself).transform_values(&:count)%>
+<%destinations = destinations.sort_by {|_key, value| value * -1}.to_h%>
+<%destinations = destinations.keys[0..4]%>
+<%destinations.each do |destination|%>
+    <%=destination.name%><br>
+<%end%>
